@@ -1,0 +1,38 @@
+{% load static %}
+
+<title>LEVELEX GROCERY</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="/">SHOPPING CENTER</a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right">
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+          <li class="active"><a href="/">Home</a></li> &nbsp;
+          <li><a class="active"  href="{% url 'cartDetails' %}"><i class="fa fa-shopping-cart" style="font-size:23px;color:pink">&nbsp;{{itc}}</i></a></li> &nbsp;
+          {% if user.is_authenticated %}
+            <li>Hai ,Am {{user.username}}</li>&nbsp;
+            <li><a  class="active"  href="accounts/logout">Logout</a></li> &nbsp;
+             {% else %}
+            <li><a  class="active"  href="accounts/register">Registration</a></li> &nbsp;
+            <li><a  class="active"  href="accounts/login">Login</a></li> &nbsp;
+          {% endif %}
+        </ul>
+
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
